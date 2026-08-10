@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>TCC Car Center - การเคลม / การซ่อม</title>
+
+  <script src="https://static.line-scdn.net/liff/edge/2/sdk.js"></script>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #f4f6f8;
+      color: #222;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 520px;
+      margin: 0 auto;
+      padding: 24px 16px 40px;
+    }
+
+    .header {
+      text-align: center;
+      margin-bottom: 24px;
+    }
+
+    .header h1 {
+      margin: 0 0 8px;
+      font-size: 28px;
+    }
+
+    .header p {
+      margin: 0;
+      color: #666;
+      font-size: 15px;
+    }
+
+    .accordion {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .accordion-item {
+      background: #ffffff;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 3px 12px rgba(0, 0, 0, 0.08);
+    }
+
+    .accordion-button {
+      width: 100%;
+      border: none;
+      background: #ffffff;
+      padding: 18px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      cursor: pointer;
+      font-size: 17px;
+      font-weight: 600;
+      text-align: left;
+    }
+
+    .accordion-button:hover {
+      background: #f9fafb;
+    }
+
+    .accordion-title {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .arrow {
+      font-size: 14px;
+      transition: transform 0.25s ease;
+    }
+
+    .accordion-item.active .arrow {
+      transform: rotate(180deg);
+    }
+
+    .accordion-content {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease;
+      background: #ffffff;
+    }
+
+    .accordion-content-inner {
+      padding: 0 20px 20px;
+      color: #444;
+      line-height: 1.7;
+      font-size: 15px;
+    }
+
+    .accordion-content-inner h3 {
+      margin-top: 4px;
+      margin-bottom: 10px;
+      font-size: 17px;
+      color: #222;
+    }
+
+    .accordion-content-inner p {
+      margin: 8px 0;
+    }
+
+    .accordion-content-inner ul,
+    .accordion-content-inner ol {
+      padding-left: 20px;
+      margin: 8px 0;
+    }
+
+    .accordion-content-inner li {
+      margin-bottom: 6px;
+    }
+
+    .note {
+      margin-top: 24px;
+      text-align: center;
+      color: #888;
+      font-size: 13px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="container">
+
+    <div class="header">
+      <h1>🔧 การเคลม / การซ่อม</h1>
+      <p>กรุณาเลือกหัวข้อที่ต้องการสอบถาม</p>
+    </div>
+
+    <div class="accordion">
+
+      <!-- ขั้นตอนการเคลม -->
+      <div class="accordion-item">
+        <button class="accordion-button">
+          <span class="accordion-title">
+            🚘 ขั้นตอนการเคลม
+          </span>
+          <span class="arrow">▼</span>
+        </button>
+
+        <div class="accordion-content">
+          <div class="accordion-content-inner">
+            <h3>ขั้นตอนเบื้องต้นในการเคลม</h3>
+
+            <ol>
+              <li>แจ้งบริษัทประกันหรือเจ้าหน้าที่ที่เกี่ยวข้อง</li>
+              <li>แจ้งรายละเอียดเหตุการณ์และสถานที่เกิดเหตุ</li>
+              <li>เตรียมข้อมูลรถและกรมธรรม์</li>
+              <li>รับเอกสารหรือเลขที่เคลมจากบริษัทประกัน</li>
+              <li>นำรถเข้าตรวจสอบความเสียหายและประเมินการซ่อม</li>
+            </ol>
+
+            <p>
+              ขั้นตอนอาจแตกต่างกันตามบริษัทประกันและประเภทของการเคลม
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- เอกสารการเคลม -->
+      <div class="accordion-item">
+        <button class="accordion-button">
+          <span class="accordion-title">
+            📑 เอกสารที่ใช้ในการเคลม
+          </span>
+          <span class="arrow">▼</span>
+        </button>
+
+        <div class="accordion-content">
+          <div class="accordion-content-inner">
+            <h3>เอกสารที่ควรเตรียม</h3>
+
+            <ul>
+              <li>สำเนาบัตรประชาชน</li>
+              <li>สำเนาใบขับขี่</li>
+              <li>สำเนาสมุดคู่มือจดทะเบียนรถ</li>
+              <li>เลขกรมธรรม์หรือเอกสารประกันภัย</li>
+              <li>ใบเคลมหรือเลขที่เคลม (ถ้ามี)</li>
+            </ul>
+
+            <p>
+              เอกสารที่ใช้จริงอาจแตกต่างกันตามบริษัทประกันและลักษณะของเหตุการณ์
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- ขั้นตอนการซ่อม -->
+      <div class="accordion-item">
+        <button class="accordion-button">
+          <span class="accordion-title">
+            🛠️ ขั้นตอนการซ่อม
+          </span>
+          <span class="arrow">▼</span>
+        </button>
+
+        <div class="accordion-content">
+          <div class="accordion-content-inner">
+            <h3>ขั้นตอนการนำรถเข้าซ่อม</h3>
+
+            <ol>
+              <li>นำรถเข้าตรวจสอบความเสียหาย</li>
+              <li>เจ้าหน้าที่ประเมินรายการซ่อม</li>
+              <li>ตรวจสอบสิทธิ์การเคลมหรือค่าใช้จ่าย</li>
+              <li>ดำเนินการซ่อมตามรายการที่ได้รับอนุมัติ</li>
+              <li>ตรวจสอบคุณภาพงานก่อนส่งมอบรถ</li>
+            </ol>
+          </div>
+        </div>
+      </div>
+
+      <!-- ระยะเวลาซ่อม -->
+      <div class="accordion-item">
+        <button class="accordion-button">
+          <span class="accordion-title">
+            ⏱️ ระยะเวลาการซ่อม
+          </span>
+          <span class="arrow">▼</span>
+        </button>
+
+        <div class="accordion-content">
+          <div class="accordion-content-inner">
+            <h3>ระยะเวลาการซ่อม</h3>
+
+            <p>
+              ระยะเวลาการซ่อมขึ้นอยู่กับระดับความเสียหาย
+              จำนวนรายการซ่อม และการจัดหาอะไหล่
+            </p>
+
+            <p>
+              เจ้าหน้าที่จะแจ้งระยะเวลาโดยประมาณหลังจากตรวจสอบรถแล้ว
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- ค่าใช้จ่าย -->
+      <div class="accordion-item">
+        <button class="accordion-button">
+          <span class="accordion-title">
+            💰 ค่าใช้จ่ายในการซ่อม
+          </span>
+          <span class="arrow">▼</span>
+        </button>
+
+        <div class="accordion-content">
+          <div class="accordion-content-inner">
+            <h3>ค่าใช้จ่าย</h3>
+
+            <p>
+              ค่าใช้จ่ายขึ้นอยู่กับประเภทความเสียหาย
+              รายการอะไหล่ และเงื่อนไขความคุ้มครองของกรมธรรม์
+            </p>
+
+            <p>
+              หากเป็นการเคลมประกัน อาจมีค่าเสียหายส่วนแรก
+              หรือค่าใช้จ่ายเพิ่มเติมตามเงื่อนไขของกรมธรรม์
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- รับรถหลังซ่อม -->
+      <div class="accordion-item">
+        <button class="accordion-button">
+          <span class="accordion-title">
+            ✅ การรับรถหลังซ่อม
+          </span>
+          <span class="arrow">▼</span>
+        </button>
+
+        <div class="accordion-content">
+          <div class="accordion-content-inner">
+            <h3>ก่อนรับรถควรตรวจสอบ</h3>
+
+            <ul>
+              <li>ตรวจสอบรายการซ่อมที่ดำเนินการแล้ว</li>
+              <li>ตรวจดูความเรียบร้อยของตัวรถ</li>
+              <li>ตรวจสอบเอกสารที่เกี่ยวข้อง</li>
+              <li>สอบถามรายละเอียดการรับประกันงานซ่อม หากมี</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="note">
+      TCC Car Center
+    </div>
+
+  </div>
+
+  <script>
+    async function initLIFF() {
+      try {
+        await liff.init({
+          liffId: "ใส่_LIFF_ID_การเคลมการซ่อมตรงนี้"
+        });
+
+        console.log("LIFF Ready");
+      } catch (err) {
+        console.error("LIFF Error:", err);
+      }
+    }
+
+    initLIFF();
+
+    const items = document.querySelectorAll(".accordion-item");
+
+    items.forEach((item) => {
+      const button = item.querySelector(".accordion-button");
+      const content = item.querySelector(".accordion-content");
+
+      button.addEventListener("click", () => {
+        const isActive = item.classList.contains("active");
+
+        items.forEach((otherItem) => {
+          otherItem.classList.remove("active");
+
+          const otherContent =
+            otherItem.querySelector(".accordion-content");
+
+          otherContent.style.maxHeight = null;
+        });
+
+        if (!isActive) {
+          item.classList.add("active");
+          content.style.maxHeight = content.scrollHeight + "px";
+        }
+      });
+    });
+  </script>
+
+</body>
+</html>
